@@ -1,0 +1,91 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+MACHINES = {
+  otuslinux: {
+    box_name: 'centos/7',
+    ip_addr: '192.168.11.101',
+    disks: [
+      {
+        dfile: './sata1.vdi',
+        size: 250,
+        port: 1
+      },
+      {
+        dfile: './sata2.vdi',
+        size: 250,
+        port: 2
+      },
+      {
+        dfile: './sata3.vdi',
+        size: 250,
+        port: 3
+      },
+      {
+        dfile: './sata4.vdi',
+        size: 250,
+        port: 4
+      },
+      {
+        dfile: './sata5.vdi',
+        size: 250,
+        port: 5
+      },
+      {
+        dfile: './sata6.vdi',
+        size: 250,
+        port: 6
+      }
+    ]
+  }
+}.freeze
+
+Vagrant.configure('2') do |config|
+  MACHINES.each do |boxname, boxconfig|
+    config.vm.define boxname do |box|
+      box.vm.box = boxconfig[:box_name]
+      box.vm.host_name = boxname
+      box.vm.network 'private_network', ip: boxconfig[:ip_addr]
+
+      box.vm.provider :virtualbox do |vb|
+        vb.customize [
+          'modifyvm', :id,
+          '--memory', '1024'
+        ]
+
+        boxconfig[:disks].each do |disk|
+          next if File.exist?(disk[:dfile])
+
+          vb.customize [
+            'createhd',
+            '--filename', disk[:dfile],
+            '--variant', 'Fixed',
+            '--size', disk[:size]
+          ]
+        end
+
+        unless File.exist?(boxconfig[:disks].first[:dfile])
+          vb.customize [
+            'storagectl', :id,
+            '--name', 'SATA',
+            '--add', 'sata'
+          ]
+        end
+
+        boxconfig[:disks].each do |disk|
+          vb.customize [
+            'storageattach', :id,
+            '--storagectl', 'SATA',
+            '--port', disk[:port],
+            '--device', 0,
+            '--type', 'hdd',
+            '--medium', disk[:dfile]
+          ]
+        end
+      end
+
+      box.vm.provision 'shell', path: 'script.sh'
+      box.vm.provision 'shell', path: 'raid10.sh'
+    end
+  end
+end
