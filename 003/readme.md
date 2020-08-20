@@ -6,12 +6,27 @@
 
 уменьшить том под / до 8G
 
+https://linoxide.com/how-tos/how-extend-resize-lvm-partition-linux/
+
 ```
-lvresize -L 8G /dev/mapper/VolGroup00-LogVol00
+# unmount volume
+df -hP
+/dev/mapper/vg--01-lv_stripe 1008M   55M  902M   6% /mnt/lv_stripe
 
-resize2fs /dev/mapper/VolGroup00-LogVol00
-resize_reiserfs
+umount: /: target is busy.
+# umount /mnt/lv_stripe
 
+filesystem check
+# e2fsck -f /dev/vg-01/lv_stripe 
+
+3) Resizing filesystem
+resize filesystem
+resize2fs -p /dev/vg-01/lv_stripe 800M
+
+4) Reducing the LV size
+lvreduce -L 8G /dev/mapper/VolGroup00-LogVol00 
+
+# mount /dev/vg-01/lv_stripe /mnt/lv_stripe/
 ```
 
 
