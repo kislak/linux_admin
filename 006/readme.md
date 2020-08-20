@@ -4,7 +4,13 @@
 настраивать GRUB2;
 управлять initrd с помощью dracut;
 работать с udev;
+  prev lecture
 восстанавливать сломанный загрузчик.
+  grub2-install
+  c - command prompt
+    > linux (hd0,msdos1)/vmlinuz... <params>
+      initrd (hd0,msdos1)/initramfs<...>.img
+      boot
 
 ## Результаты
 
