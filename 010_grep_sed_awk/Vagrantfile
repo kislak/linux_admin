@@ -5,7 +5,7 @@ home = '.'
 ENV['LC_ALL'] = 'en_US.UTF-8'
 
 MACHINES = {
-  lvm: {
+  l10: {
     box_name: 'centos/7',
     # box_version: '1804.02',
     ip_addr: '192.168.11.101',
@@ -14,21 +14,6 @@ MACHINES = {
         dfile: home + '/VirtualBox VMs/sata1.vdi',
         size: 10_240, # Megabytes
         port: 1
-      },
-      {
-        dfile: home + '/VirtualBox VMs/sata2.vdi',
-        size: 2048,
-        port: 2
-      },
-      {
-        dfile: home + '/VirtualBox VMs/sata3.vdi',
-        size: 1024,
-        port: 3
-      },
-      {
-        dfile: home + '/VirtualBox VMs/sata4.vdi',
-        size: 1024,
-        port: 4
       }
     ]
   }
@@ -36,7 +21,6 @@ MACHINES = {
 
 Vagrant.configure('2') do |config|
   MACHINES.each do |boxname, boxconfig|
-    # config.vm.box_version = boxconfig[:box_version]
     config.vm.define boxname do |box|
       box.vm.box = boxconfig[:box_name]
       box.vm.host_name = boxname.to_s

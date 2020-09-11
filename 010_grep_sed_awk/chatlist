@@ -1,0 +1,230 @@
+Vikentsi Lapa 9:57 AM:
+Всем привет! Ждем остальных участников тренинга.
+Alena Sauchanka 9:57 AM:
+ghbdtn
+привет)
+Sviatlana Artsiomava 9:59 AM:
+Доброе утро
+да
+Alena Sauchanka 10:00 AM:
++
+Mikhail Nasevich 10:00 AM:
++
+Aliaksandr Khviasiuk 10:00 AM:
++
+Mikhail Nasevich 10:08 AM:
++
+Aliaksandr Kazlouski 10:09 AM:
++ (CentOS, Debian)
+Mikhail Nasevich 10:09 AM:
+Dedian & Ubuntu Server
+Alena Sauchanka 10:09 AM:
+я не успела за 1 вечер
+Vikentsi Lapa 10:11 AM:
+FTM7.6
+Aliaksandr Khviasiuk 10:12 AM:
+FTM7.6
+Alena Sauchanka 10:12 AM:
+FTM7.6
+Viktoryia Chytaya 10:12 AM:
+FTM7.6
+Darya Karpeichyk 10:12 AM:
+FTM7.6
+Aliaksandr Kazlouski 10:12 AM:
+FTM7.6
+Mikhail Nasevich 10:12 AM:
+FTM7.6
+Tatsiana Iuchyk 10:12 AM:
+FTM7.6
+Viktar Pazniak 10:12 AM:
+FTM7.6
+Aliaksandr Kazlouski 10:13 AM:
+отсутствие базовых знаний у многих по LINUX
+Alena Sauchanka 10:14 AM:
+новая, не интуитивная, как винда с детства среда
+Aliaksandr Khviasiuk 10:14 AM:
+-
+Aliaksandr Kazlouski 10:14 AM:
+-
+Viktoryia Chytaya 10:14 AM:
+-
+Alena Sauchanka 10:14 AM:
+-
+Darya Karpeichyk 10:15 AM:
+ходьба
+Mikhail Nasevich 10:15 AM:
+велосипед
+сел и поехал
+шз
+Aliaksandr Khviasiuk 10:17 AM:
+cmd
+Mikhail Nasevich 10:17 AM:
+ip
+Aliaksandr Kazlouski 10:17 AM:
+чаты разные
+Alena Sauchanka 10:17 AM:
+прописывали хосты
+Vikentsi Lapa 10:20 AM:
+uname
+Aliaksandr Kazlouski 10:21 AM:
+не проверишь потом быстро (как на UI), что выполнил через команды
+нужно знать команды все
+Mikhail Nasevich 10:21 AM:
+не юзерфрендли
+Alena Sauchanka 10:21 AM:
+сложнее запоминать команды и функции возмможно
+нет анимации)))
+Tatsiana Iuchyk 10:22 AM:
+команды иногда сложны, сделаешь ошибку нужно переписывать
+Aliaksandr Kazlouski 10:24 AM:
+40
+Alena Sauchanka 10:24 AM:
+33?
+Alena Sauchanka 10:31 AM:
+-
+Aliaksandr Kazlouski 10:31 AM:
+это то, что связывает пользователя и железо
+Alena Sauchanka 10:31 AM:
+позволяет управлять железом изнутри и настраивать его
+Aliaksandr Khviasiuk 10:36 AM:
+10?
+Alena Sauchanka 10:36 AM:
+3-4
+Viktoryia Chytaya 10:36 AM:
+5
+Mikhail Nasevich 10:36 AM:
+~15
+Aliaksandr Kazlouski 10:36 AM:
+150
+Aliaksandr Khviasiuk 10:36 AM:
+200
+Aliaksandr Kazlouski 10:36 AM:
+250
+Alena Sauchanka 10:37 AM:
+разные подходы
+разные преимущества
+Aliaksandr Kazlouski 10:38 AM:
+если можно собирать для разных групп пользователей - почему этим не пользоваться
+Aliaksandr Kazlouski 10:47 AM:
+разрядность системы
+Aliaksandr Khviasiuk 10:47 AM:
+версия, процессор
+Alena Sauchanka 10:47 AM:
+версия, установка
+год выпуска)
+Tatsiana Iuchyk 10:47 AM:
+версия, разряд
+Aliaksandr Kazlouski 10:47 AM:
+имя дистрибутива
+Mikhail Nasevich 10:49 AM:
+биос
+Alena Sauchanka 10:49 AM:
+биос
+Mikhail Nasevich 10:50 AM:
+чтения бут файлае
+Aliaksandr Kazlouski 10:50 AM:
+ядра компа запускаются
+Mikhail Nasevich 10:50 AM:
+и
+boot.ini
+Alena Sauchanka 10:51 AM:
+инициализация?
+Mikhail Nasevich 10:51 AM:
+операционную систему
+Vikentsi Lapa 10:54 AM:
+IP address:     10.6.240.146
+Port:           5555
+User:           Epam_User_Name          (without @epam.com)
+Password:       123456
+SSH client:     https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe
+                https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+Mikhail Nasevich 10:56 AM:
+timed out
+Tatsiana Iuchyk 10:56 AM:
++1
+Aliaksandr Kazlouski 10:56 AM:
+connection timed out
+Aliaksandr Khviasiuk 10:56 AM:
+nerwork error
+Kseniya Sobol 10:56 AM:
+тайм аут тоже
+Alena Sauchanka 10:57 AM:
+вводить только эти данные?
+IP address:     10.6.240.146
+Port:           5555
+у немя нет "Login as:"
+в окне
+Aliaksandr Khviasiuk 10:58 AM:
+у на с даже ввовда логина нет
+Aliaksandr Kazlouski 10:58 AM:
+появилась, но без login as
+Alena Sauchanka 10:59 AM:
+нету, сразу Trror валит
+Error
+Tatsiana Iuchyk 10:59 AM:
+появилась, но без login as  - +1
+Mikhail Nasevich 11:01 AM:
+Pinging 10.6.240.146 with 32 bytes of data:
+Reply from 10.6.240.146: bytes=32 time=27ms TTL=127
+Reply from 10.6.240.146: bytes=32 time=27ms TTL=127
+Reply from 10.6.240.146: bytes=32 time=21ms TTL=127
+Reply from 10.6.240.146: bytes=32 time=15ms TTL=127
+Ping statistics for 10.6.240.146:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 15ms, Maximum = 27ms, Average = 22ms
+Aliaksandr Khviasiuk 11:01 AM:
+пингует
+Aliaksandr Kazlouski 11:01 AM:
+есть пинг
+Vikentsi Lapa 11:11 AM:
+11.15
+Aliaksandr Kazlouski 11:22 AM:
+а в чем различие внешних и внутренних команд?
+Aliaksandr Kazlouski 11:30 AM:
+для структурирования
+Aliaksandr Kazlouski 11:39 AM:
+а как увидеть различия в именах директорий и папок - расширений то нет
+иректорий и файлов
+Aliaksandr Khviasiuk 11:45 AM:
+copy,
+Alena Sauchanka 11:46 AM:
+move
+Aliaksandr Khviasiuk 11:46 AM:
+move
+Alena Sauchanka 11:46 AM:
+remove
+Aliaksandr Khviasiuk 11:46 AM:
+remove
+преместить
+Alena Sauchanka 11:46 AM:
+из одной в другую директорию может?
+Aliaksandr Kazlouski 11:47 AM:
+remove
+Mikhail Nasevich 11:47 AM:
+тип файла
+данные
+Tatsiana Iuchyk 11:47 AM:
+открыть
+Mikhail Nasevich 11:51 AM:
+/
+Aliaksandr Khviasiuk 11:51 AM:
+../
+Aliaksandr Khviasiuk 11:57 AM:
+a??
+Aliaksandr Kazlouski 11:57 AM:
+a??
+Alena Sauchanka 12:05 PM:
+спасибо
+Viktoryia Chytaya 12:05 PM:
+Спасибо
+Aliaksandr Kazlouski 12:06 PM:
+спасибо
+Tatsiana Iuchyk 12:06 PM:
+спасибо!
+Alena Sauchanka 12:06 PM:
+Хорошего дня
+Aliaksandr Khviasiuk 12:06 PM:
+пока
+Mikhail Nasevich 12:06 PM:
+thanks
