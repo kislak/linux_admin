@@ -1,0 +1,15 @@
+---
+- name: Install Nginx
+  hosts: proxy
+  become: true
+  vars:
+    nginx_port: 8080
+    nginx_repo_path: /etc/yum.repos.d/nginx.repo
+
+  tasks:
+    - name: 'create file for Nginx rep'
+      file:
+        path: "{{ nginx_repo_path }}
+  block: |
+    [nginx-stable]
+    name=nginx stable repo

@@ -1,0 +1,22 @@
+app:
+  hosts:
+    app.my.com
+  vars:
+    os_release: redhat
+    ansible_user: 'vagrant'
+  children:
+    frontend:
+      hosts:
+        nginx1.my.com
+        nginx2.my.com
+
+proxy:
+  hosts:
+    prod-nginx-1:
+      anslible_host: 127.0.0.1
+      port: 2222
+      ansible_sshf_private_key_file: see>vagrant ssh-config
+    prod-nginx-2:
+      anslible_host: 127.0.0.1
+      port: 2200
+      ansible_sshf_private_key_file: see>vagrant ssh-config
