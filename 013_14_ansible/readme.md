@@ -89,5 +89,55 @@ variables
 adv-it
   для чотких пацанчиков
   https://www.youtube.com/watch?v=Ck1SGolr6GI&list=PLg5SS_4L6LYufspdPupdynbMQTBnZd31N
-  
 
+molecule ansible - test automation
+
+-----------------
+
+## roles
+
+```
+ansible-galaxy init roles/nginx
+```
+
+playbook gets very simple
+
+repo for each role - with tags v1.2.1
+
+requirements.yml
+- src: https://github.com/geerlingguay/ansible-role-nginx
+  version: 1.2.1
+
+```   
+ansible-galaxy install -r requriements.yml
+```
+decompostion
+  - include_tasks: install.yml
+  include_role:
+    name: xxx
+
+handlers/notify (reload nginx)
+
+- naame: 'conf'
+  templaate:
+    src: ''
+    dest: ''
+  notify: "reload nginx"
+  shell: 'nginx -t && nginx reload'
+  
+- name: 'reload nginx'
+  systemd
+    name: nginx
+    state: reload
+
+ansible-vault encrypt_string --vaault-id ops@paassfile 'secret123' --name pg_password
+
+nginx_port: !valut |
+  $ansible_vault;1.2;aes256;ops
+
+
+https://github.com/ansible/awx
+
+oh-my-tmux
+oh-my-fish
+NERDtreeToggle (vim plugin)
