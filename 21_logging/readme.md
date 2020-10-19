@@ -91,5 +91,5 @@ abrtd
 
 kdump
   rpm - kernal panic
-  
-  
+
+loki 
