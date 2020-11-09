@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/kislak/laboratory/otus/linux_admin/24_dhcp_pxe/exp","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
