@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "n1" do |server|
+    config.vm.box = 'bento/ubuntu-20.04'
+  end
+
+  config.vm.define "n2" do |server|
+    config.vm.box = 'bento/ubuntu-20.04'
+  end
+
+  # https://github.com/mitchellh/vagrant-google
+
+  # config.vm.define "ks2" do |server|
+  #   config.vm.box = 'ubuntu/20.04'
+  # end
+  #
+  #
+  # config.vm.define "ks3" do |server|
+  #   config.vm.box = 'ubuntu/20.04'
+  # end
+end
