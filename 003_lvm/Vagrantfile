@@ -1,85 +1,78 @@
 # -*- mode: ruby -*-
 # vim: set ft=ruby :
 
-home = '.'
 ENV['LC_ALL'] = 'en_US.UTF-8'
 
-MACHINES = {
-  lvm: {
-    box_name: 'centos/7',
-    # box_version: '1804.02',
-    ip_addr: '192.168.11.101',
-    disks: [
-      {
-        dfile: home + '/VirtualBox VMs/sata1.vdi',
-        size: 10_240, # Megabytes
-        port: 1
-      },
-      {
-        dfile: home + '/VirtualBox VMs/sata2.vdi',
-        size: 2048,
-        port: 2
-      },
-      {
-        dfile: home + '/VirtualBox VMs/sata3.vdi',
-        size: 1024,
-        port: 3
-      },
-      {
-        dfile: home + '/VirtualBox VMs/sata4.vdi',
-        size: 1024,
-        port: 4
-      }
-    ]
+
+HOME_DIR = '.'
+DISKS = [
+  {
+    file: HOME_DIR + '/VirtualBox VMs/sata1.vdi',
+    size: 10_240, # Megabytes
+    port: 1
+  },
+  {
+    file: HOME_DIR + '/VirtualBox VMs/sata2.vdi',
+    size: 2048,
+    port: 2
+  },
+  {
+    file: HOME_DIR + '/VirtualBox VMs/sata3.vdi',
+    size: 1024,
+    port: 3
+  },
+  {
+    file: HOME_DIR + '/VirtualBox VMs/sata4.vdi',
+    size: 1024,
+    port: 4
   }
-}.freeze
+]
+
 
 Vagrant.configure('2') do |config|
-  MACHINES.each do |boxname, boxconfig|
-    # config.vm.box_version = boxconfig[:box_version]
-    config.vm.define boxname do |box|
-      box.vm.box = boxconfig[:box_name]
-      box.vm.host_name = boxname.to_s
-      box.vm.network 'private_network', ip: boxconfig[:ip_addr]
+  config.vm.define 'lvm' do |box|
+    box.vm.box = 'centos/7'
+    box.vm.box_version = '1804.02'
+    box.vm.host_name = 'lvm'
+    box.vm.network 'private_network', ip: '192.168.11.101'
 
-      box.vm.provider :virtualbox do |vb|
+    box.vm.provider :virtualbox do |vb|
+      vb.customize [
+        'modifyvm', :id,
+        '--memory', '1024'
+      ]
+
+      DISKS.each do |disk|
+        next if File.exist?(disk[:file])
+
         vb.customize [
-          'modifyvm', :id,
-          '--memory', '1024'
+          'createhd',
+          '--filename', disk[:file],
+          '--variant', 'Fixed',
+          '--size', disk[:size]
         ]
-
-        boxconfig[:disks].each do |disk|
-          next if File.exist?(disk[:dfile])
-
-          vb.customize [
-            'createhd',
-            '--filename', disk[:dfile],
-            '--variant', 'Fixed',
-            '--size', disk[:size]
-          ]
-        end
-
-        unless File.exist?(boxconfig[:disks].first[:dfile])
-          vb.customize [
-            'storagectl', :id,
-            '--name', 'SATA',
-            '--add', 'sata'
-          ]
-        end
-
-        boxconfig[:disks].each do |disk|
-          vb.customize [
-            'storageattach', :id,
-            '--storagectl', 'SATA',
-            '--port', disk[:port],
-            '--device', 0,
-            '--type', 'hdd',
-            '--medium', disk[:dfile]
-          ]
-        end
       end
 
-      box.vm.provision 'shell', path: 'script.sh'
+      unless File.exist?(DISKS.first[:file])
+        vb.customize [
+          'storagectl', :id,
+          '--name', 'SATA',
+          '--add', 'sata'
+        ]
+      end
+
+      DISKS.each do |disk|
+        vb.customize [
+          'storageattach', :id,
+          '--storagectl', 'SATA',
+          '--port', disk[:port],
+          '--device', 0,
+          '--type', 'hdd',
+          '--medium', disk[:file]
+        ]
+      end
     end
+
+    box.vm.provision 'shell', path: 'script.sh'
   end
 end

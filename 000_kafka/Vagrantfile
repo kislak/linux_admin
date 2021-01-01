@@ -1,23 +1,42 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.configure("2") do |config|
-  config.vm.define "n1" do |server|
-    config.vm.box = 'bento/ubuntu-20.04'
+Vagrant.configure('2') do |config|
+  config.vm.define 'node1' do |node|
+    node.vm.box = 'bento/ubuntu-20.04'
+    node.vm.network(
+      'private_network',
+      ip: '192.168.10.101',
+      hostname: true
+    )
   end
 
-  config.vm.define "n2" do |server|
-    config.vm.box = 'bento/ubuntu-20.04'
+  config.vm.define 'node2' do |node|
+    node.vm.box = 'bento/ubuntu-20.04'
+    node.vm.network(
+      'private_network',
+      ip: '192.168.10.102',
+      hostname: true
+    )
   end
-
-  # https://github.com/mitchellh/vagrant-google
-
-  # config.vm.define "ks2" do |server|
-  #   config.vm.box = 'ubuntu/20.04'
-  # end
-  #
-  #
-  # config.vm.define "ks3" do |server|
-  #   config.vm.box = 'ubuntu/20.04'
-  # end
 end
+
+# TIP to enable ref by host
+# vagrant hostmanager
+
+# TIPS:
+# ip a
+# > VBoxManage hostonlyif remove vboxnet6
+
+
+# TIP manual network config
+# config.vm.network "public_network", auto_config: false
+# config.vm.provision "shell",
+#                     run: "always",
+#                     inline: "ifconfig eth1 192.168.0.17 netmask 255.255.255.0 up"
+
+
+# default router
+# config.vm.provision "shell",
+#                     run: "always",
+#                     inline: "route add default gw 192.168.0.1"

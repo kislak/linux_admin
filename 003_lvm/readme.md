@@ -1,5 +1,8 @@
 # задание
 
+mdadm smartmontools hdparm gdisk
+
+
 Работа с LVM
 на имеющемся образе
 /dev/mapper/VolGroup00-LogVol00 38G 738M 37G 2% /
