@@ -1,8 +1,5 @@
 # задание
 
-mdadm smartmontools hdparm gdisk
-
-
 Работа с LVM
 на имеющемся образе
 /dev/mapper/VolGroup00-LogVol00 38G 738M 37G 2% /
@@ -84,4 +81,39 @@ fs
   file system
     /home 
     /var 
+```
+
+
+-----------------------
+```
+
+sudo su
+mount
+mount |grep /dev/mapper/VolGroup00-LogVol00 
+df
+lsblk
+mount
+swapoff -a
+
+lvdisplay
+
+pvcreate /dev/sdb
+vgcreate vg_tmp_root /dev/sdb
+lvcreate -n lv_tmp_root -l +100%FREE /dev/vg_tmp_root
+mkfs.xfs /dev/vg_tmp_root/lv_tmp_root
+mount /dev/vg_tmp_root/lv_tmp_root /mnt
+
+xfsdump -J - /dev/VolGroup00/LogVol00| xfsrestore -J - /mnt
+
+
+
+lvdisplay /dev/mapper/VolGroup00-LogVol00
+resize2fs /dev/mapper/VolGroup00-LogVol00
+
+sudo lvreduce  -L 25G /dev/mapper/VolGroup00-LogVol00
+resize2fs -F /dev/mapper/VolGroup00-LogVol00
+
+vgdisplay
+lvreduce
+
 ```
